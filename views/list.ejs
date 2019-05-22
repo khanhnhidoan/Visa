@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap 4 Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- reference your copy Font Awesome here (from our CDN or by hosting yourself) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8 col-md-push-2">
+        <table class="table table-hover">
+          
+          <thead>
+              <tr class="bg-success text-center">
+                  <td colspan="6"><a href="add"><span class="fa fa-plus">Thêm Video</span></a></td>
+                </tr>
+            <tr class="bg-primary">
+              <th scope="col">ID</th>
+              <th scope="col">Tiêu đề</th>
+              <th scope="col">Mô tả</th>
+              <th scope="col">Key</th>
+              <th scope="col">Ảnh</th>
+              <th scope="col">Edit - Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+              <% data.rows.forEach(function(item){ %>
+                <tr>
+                    <td><%= item.id %></td>
+                    <td><%= item.tieude %></td>
+                    <td><%= item.mota %></td>
+                    <td><%= item.key %></td>
+                    <td><img src="../images/logoSmall/<%= item.image %>" alt=""></td>
+                    <td><a href="edit/<%= item.id %>"><span class="fa fa-edit">Edit</span></a>
+                       - <a onclick="return confirm('Are you sure!!!')" href="delete/<%= item.id %>"><span class="fa fa-remove">Delete</span></td>
+                  </tr> 
+                <%})%>
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
